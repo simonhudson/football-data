@@ -1,0 +1,36 @@
+@mixin button() {
+	@include padding();
+	@include strong();
+	@include text-center();
+	border: 1px solid transparent;
+	display: inline-block;
+	text-decoration: none;
+}
+
+@mixin button--primary() {
+	@include button();
+	background: palette(primary, b);
+	color: palette(primary, white);
+}
+
+@mixin button--primary--hollow() {
+	@include button();
+	background: transparent;
+	border-color: palette(primary, b);
+	color: palette(primary, b);
+}
+
+@mixin button-row() {
+	display: flex;
+	justify-content: space-between;
+	
+	[class^=btn--] {
+		flex: 1 1 0;
+		
+		&:not(:last-of-type) {
+			@include margin-r();
+		}
+
+	}
+	
+}

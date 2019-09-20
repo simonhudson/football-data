@@ -1,0 +1,14 @@
+$alertTypes: 'info', 'warning', 'error', 'success';
+
+.alert {
+	@include padding();
+	
+	@each $type in $alertTypes {
+		&--#{$type} {
+			background-color: rgba(palette(alert, #{$type}), .5);
+			border: 1px solid palette(alert, #{$type});
+			color: palette(alert, #{$type});
+		}
+	}
+	
+}

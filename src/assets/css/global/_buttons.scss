@@ -1,0 +1,7 @@
+.btn--primary {
+	@include button--primary();	
+}
+
+.btn--primary--hollow {
+	@include button--primary--hollow();
+}
