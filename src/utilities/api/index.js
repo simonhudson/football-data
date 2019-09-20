@@ -6,16 +6,6 @@ const COMMON_OPTIONS = {
 	mode: 'cors'
 };
 
-const ERROR_MESSAGE = {
-	competitions: 'Could not load competitions'
-};
-
-const SUCCESSFUL_STATUS_CODES = [200];
-
-export function handleError(endpoint, error) {
-	console.log(error);
-};
-
 export function get(endpoint) {
 	if (!endpoint) return null;
 	const options = {...COMMON_OPTIONS, method: 'GET' };
@@ -25,4 +15,4 @@ export function get(endpoint) {
 			.then(data => resolve(data))
 			.catch(error => reject(error));
 	});
-};
+}

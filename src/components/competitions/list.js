@@ -21,7 +21,7 @@ class Competitions extends Component {
 
     render = () => {
         
-        const { props, state } = this;
+        const { state } = this;
         const { allData, currentData } = state;
         
         if (!allData.length) return null;
