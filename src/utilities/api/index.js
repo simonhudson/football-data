@@ -10,7 +10,7 @@ export function get(endpoint) {
 	if (!endpoint) return null;
 	const options = {...COMMON_OPTIONS, method: 'GET' };
 	return new Promise((resolve, reject) => {
-		fetch(`http://api.football-data.org/v2/${endpoint}`, options)
+		fetch(`${process.env.API_URL}/${endpoint}`, options)
 			.then(response => response.json())
 			.then(data => resolve(data))
 			.catch(error => reject(error));
