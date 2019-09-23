@@ -15,6 +15,11 @@ module.exports = [
 		loader: 'file-loader'
 	},
 	{
+		test: /\.json$/,
+		exclude: /node_modules/,
+		loader: 'json-loader'
+	},
+	{
 		test: /\.(woff|woff2)$/,
 		exclude: /node_modules/,
 		loader: 'url-loader?prefix=font/&limit=5000'

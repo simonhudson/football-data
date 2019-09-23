@@ -4,6 +4,9 @@ import React, { Component } from 'react';
 import './assets/css/styles.scss';
 import { getClub, getFixtures, getResults } from './utilities/api';
 import Home from './components/views/home';
+import Fixtures from './components/views/fixtures';
+import Results from './components/views/results';
+import Squad from './components/views/squad';
 import Header from './components/header';
 
 class App extends Component {
@@ -37,6 +40,11 @@ class App extends Component {
             });
         });
     }
+    
+    onNavigationClick = e => {
+        e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+        this.setState({ currentView: e.target.dataset.value });
+    };
 
     render = () => {
         
@@ -46,8 +54,11 @@ class App extends Component {
         return (
             <div className="wrap">
                 <main>
-                    <Header clubName={state.clubName} src={state.crestUrl} />
-                    <Home {...state} />
+                    <Header clubName={state.clubName} src={state.crestUrl} onNavigationClick={this.onNavigationClick} />
+                    {state.currentView === 'home' && <Home {...state} />}
+                    {state.currentView === 'results' && <Results {...state} />}
+                    {state.currentView === 'fixtures' && <Fixtures {...state} />}
+                    {state.currentView === 'squad' && <Squad {...state} />}
                 </main>
             </div>
         );
