@@ -14,7 +14,7 @@ const UpcomingFixtures = props => {
 	return (
 		<div className="upcoming-fixtures">
 			<h2>Upcoming fixtures</h2>
-			{upcomingFixtures.map((fixture, index) => <FixtureItem fixture={fixture} />)}
+			{upcomingFixtures.map((fixture, index) => <FixtureItem key={index} fixture={fixture} />)}
 		</div>
 	);
 

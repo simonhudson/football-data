@@ -14,7 +14,7 @@ const RecentResults = props => {
 	return (
 		<div className="recent-results">
 			<h2>Recent results</h2>
-			{recentResults.map((result, index) => <ResultItem result={result} />)}
+			{recentResults.map((result, index) => <ResultItem key={index} result={result} />)}
 		</div>
 	);
 
