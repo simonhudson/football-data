@@ -22,7 +22,7 @@ const MainNavigation = props => {
 					<li className="main-navigation__item" key={index}>
 						<button className="main-navigation__button" data-value={item.url} onClick={((e) => props.onNavigationClick(e))}>{item.label}</button>
 					</li>
-				)
+				);
 			})}
 			</ul>
 		</nav>

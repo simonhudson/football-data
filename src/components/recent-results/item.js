@@ -1,7 +1,6 @@
 'use strict';
 
 import React from 'react';
-const moment = require('moment');
 
 const ResultItem = props => {
 

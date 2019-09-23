@@ -18,6 +18,7 @@ class App extends Component {
             crestUrl: null,
             currentView: 'home',
             fixtures: null,
+            squad: null,
             results: null
         };
     }
@@ -26,7 +27,8 @@ class App extends Component {
         getClub().then(response => {
             this.setState({
                 crestUrl: response.crestUrl,
-                clubName: response.name
+                clubName: response.name,
+                squad: response.squad
             });
         });
         getFixtures().then(response => {
