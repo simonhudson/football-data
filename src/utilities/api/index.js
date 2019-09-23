@@ -21,3 +21,4 @@ const get = endpoint => {
 
 export function getClub() { return get(`${TEAM_API_URL}`); }
 export function getFixtures() { return get(`${TEAM_API_URL}matches?status=SCHEDULED`); }
+export function getResults() { return get(`${TEAM_API_URL}matches?status=FINISHED`); }

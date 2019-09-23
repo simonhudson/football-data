@@ -2,33 +2,39 @@
 
 import React, { Component } from 'react';
 import './assets/css/styles.scss';
-import { getClub, getFixtures } from './utilities/api';
-
+import { getClub, getFixtures, getResults } from './utilities/api';
+import Home from './components/views/home';
 import Header from './components/header';
-import NextFixture from './components/next-fixture';
 
 class App extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            crestUrl: null,
             clubName: null,
-            fixtures: null
+            crestUrl: null,
+            currentView: 'home',
+            fixtures: null,
+            results: null
         };
     }
 
     componentDidMount = () => {
         getClub().then(response => {
-            if (!response) return;
             this.setState({
                 crestUrl: response.crestUrl,
                 clubName: response.name
             });
         });
         getFixtures().then(response => {
-            if (!response) return;
-            this.setState({ fixtures: response.matches });
+            this.setState({
+                fixtures: response.matches
+            });
+        });
+        getResults().then(response => {
+            this.setState({
+                results: response.matches
+            });
         });
     }
 
@@ -41,6 +47,7 @@ class App extends Component {
             <div className="wrap">
                 <main>
                     <Header clubName={state.clubName} src={state.crestUrl} />
+                    <Home {...state} />
                 </main>
             </div>
         );
