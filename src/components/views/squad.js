@@ -18,7 +18,7 @@ class Squad extends Component {
 	changeCurrentPlayer = e => {
 		const selectedPlayerId = e.target.dataset.playerId;
 		const currentPlayer = this.props.squad.find(item => item.id == selectedPlayerId);
-		this.setState({ currentPlayer })
+		this.setState({ currentPlayer });
 		e.preventDefault ? e.preventDefault() : (e.returnValue = false);
 	};
 
@@ -33,7 +33,7 @@ class Squad extends Component {
 					<ul className="squad__list">
 						{props.squad.map((player, index) => {
 							return (
-								<li>
+								<li key={index}>
 									<a href="#" onClick={((e) => this.changeCurrentPlayer(e))} data-player-id={player.id}>
 										<strong>{player.shirtNumber} {player.name}</strong><br />
 										{player.position}
@@ -52,6 +52,6 @@ class Squad extends Component {
 		);
 	}
 	
-};
+}
 
 export default Squad;
