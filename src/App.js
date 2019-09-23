@@ -2,24 +2,45 @@
 
 import React, { Component } from 'react';
 import './assets/css/styles.scss';
+import { getClub, getFixtures } from './utilities/api';
 
-import Competitions from './components/competitions/list';
+import Header from './components/header';
+import NextFixture from './components/next-fixture';
 
 class App extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            crestUrl: null,
+            clubName: null,
+            fixtures: null
+        };
     }
 
-    componentDidMount() {
-
+    componentDidMount = () => {
+        getClub().then(response => {
+            if (!response) return;
+            this.setState({
+                crestUrl: response.crestUrl,
+                clubName: response.name
+            });
+        });
+        getFixtures().then(response => {
+            if (!response) return;
+            this.setState({ fixtures: response.matches });
+        });
     }
 
-    render() {
+    render = () => {
+        
+        const { state } = this;
+        if (!state) return null;
+        
         return (
             <div className="wrap">
                 <main>
-                    <Competitions />
+                    <Header clubName={state.clubName} src={state.crestUrl} />
                 </main>
             </div>
         );

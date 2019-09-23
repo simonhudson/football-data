@@ -6,7 +6,9 @@ const COMMON_OPTIONS = {
 	mode: 'cors'
 };
 
-export function get(endpoint) {
+const TEAM_API_URL = `teams/${process.env.TEAM_API_ID}/`;
+
+const get = endpoint => {
 	if (!endpoint) return null;
 	const options = {...COMMON_OPTIONS, method: 'GET' };
 	return new Promise((resolve, reject) => {
@@ -15,4 +17,7 @@ export function get(endpoint) {
 			.then(data => resolve(data))
 			.catch(error => reject(error));
 	});
-}
+};
+
+export function getClub() { return get(`${TEAM_API_URL}`); }
+export function getFixtures() { return get(`${TEAM_API_URL}matches?status=SCHEDULED`); }
