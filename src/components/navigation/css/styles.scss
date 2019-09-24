@@ -1,5 +1,9 @@
 @import 'assets/css/styles';
 
+.main-navigation {
+	@include sticky-bottom();
+}
+
 .main-navigation__list {
 	list-style: none;
 }

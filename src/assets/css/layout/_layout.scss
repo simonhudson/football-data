@@ -1,3 +1,7 @@
+body {
+	position: relative;
+}
+
 main {
 	@include padding-y-lg();
 }
