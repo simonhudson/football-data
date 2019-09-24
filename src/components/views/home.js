@@ -10,6 +10,7 @@ const Home = props => {
 	
 	return (
 		<>
+			<h1>Home</h1>
 			<UpcomingFixtures {...props} />
 			<RecentResults {...props} />
 		</>

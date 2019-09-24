@@ -8,7 +8,7 @@ const Fixtures = props => {
 
 	return (
 		<>
-			fixtures view
+			<h1>Fixtures</h1>
 		</>
 	);
 

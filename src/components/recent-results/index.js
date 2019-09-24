@@ -9,7 +9,7 @@ const RecentResults = props => {
 
 	if (!props || !props.results) return null;
 	
-	const recentResults = props.results.slice(-NUMBER_OF_RECENT_RESULTS_TO_DISPLAY).reverse();
+	const recentResults = props.results.slice(0, NUMBER_OF_RECENT_RESULTS_TO_DISPLAY);
 	
 	return (
 		<div className="recent-results">

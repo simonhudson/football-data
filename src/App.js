@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import './assets/css/styles.scss';
 import { getClub, getFixtures, getResults } from './utilities/api';
+import { transformSquad, transformResults } from './utilities/transform';
 import Home from './components/views/home';
 import Fixtures from './components/views/fixtures';
 import Results from './components/views/results';
@@ -25,6 +26,7 @@ class App extends Component {
 
     componentDidMount = () => {
         getClub().then(response => {
+            transformSquad(response.squad);
             this.setState({
                 crestUrl: response.crestUrl,
                 clubName: response.name,
@@ -37,6 +39,7 @@ class App extends Component {
             });
         });
         getResults().then(response => {
+            transformResults(response.matches);
             this.setState({
                 results: response.matches
             });
