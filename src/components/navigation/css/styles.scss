@@ -2,15 +2,21 @@
 
 .main-navigation {
 	@include sticky-bottom();
+	@include padding();
+	background: #ddd;
 }
 
 .main-navigation__list {
+	display: flex;
+	justify-content: space-between;
 	list-style: none;
 }
 
 .main-navigation__item {
 	@include margin-r();
 	display: inline;
+	flex-grow: 1;
+	text-align: center;
 	
 	&:last-of-type {
 		margin-right: 0;
@@ -18,11 +24,11 @@
 	
 }
 
-.main-navigation__button {
+.main-navigation__link {
 	@include no-padding();
 	@include strong();
 	background: 0;
 	border: 0;
-	color: palette(primary, b);
+	color: palette(primary, bodyText);
 	cursor: pointer;
 }

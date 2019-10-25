@@ -4,11 +4,11 @@
 }
 
 @mixin sticky-top() {
-	@include sticky-shared();
 	@include position-tl();
+	@include sticky-shared();
 }
 
 @mixin sticky-bottom() {
-	@include sticky-shared();
 	@include position-bl();
+	@include sticky-shared();
 }

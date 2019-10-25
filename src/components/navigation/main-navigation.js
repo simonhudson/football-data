@@ -20,7 +20,7 @@ const MainNavigation = props => {
 			{NAVIGATION_ITEMS.map((item, index) => {
 				return (
 					<li className="main-navigation__item" key={index}>
-						<button className="main-navigation__button" data-value={item.url} onClick={((e) => props.onNavigationClick(e))}>{item.label}</button>
+						<a className="main-navigation__link" data-value={item.url} href="#" onClick={((e) => props.onNavigationClick(e))}>{item.label}</a>
 					</li>
 				);
 			})}
