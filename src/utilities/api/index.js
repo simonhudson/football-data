@@ -6,7 +6,9 @@ const COMMON_OPTIONS = {
 	mode: 'cors'
 };
 
-const TEAM_API_URL = `teams/${process.env.TEAM_API_ID}/`;
+const urlParams = new URLSearchParams(window.location.search);
+const TEAM_API_ID = urlParams.get('teamId') || process.env.TEAM_API_ID;
+const TEAM_API_URL = `teams/${TEAM_API_ID}/`;
 
 const get = endpoint => {
 	if (!endpoint) return null;

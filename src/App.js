@@ -58,8 +58,8 @@ class App extends Component {
         
         return (
             <div className="wrap">
+                <Header clubName={state.clubName} src={state.crestUrl} onNavigationClick={this.onNavigationClick} />
                 <main>
-                    <Header clubName={state.clubName} src={state.crestUrl} onNavigationClick={this.onNavigationClick} />
                     {state.currentView === 'home' && <Home {...state} />}
                     {state.currentView === 'results' && <Results {...state} />}
                     {state.currentView === 'fixtures' && <Fixtures {...state} />}

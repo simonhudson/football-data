@@ -1,5 +1,17 @@
+@import 'assets/css/styles';
+
 .header {
+	@include padding();
+	@include sticky-top();
 	align-items: center;
+	background: #eee;
 	display: flex;
-	flex-direction: column;
+	height: $sticky-banner-height * 1.25;
+	justify-content: space-between;
+}
+
+.header__club-name {
+	@include no-margin();
+	@include uppercase();
+	font-size: rem($base-font-size * 1.2);
 }

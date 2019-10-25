@@ -7,7 +7,7 @@ const ClubName = props => {
 	if (!props) return null;
 
 	return (
-		<h1>{props.clubName}</h1>
+		<h1 className="header__club-name">{props.clubName}</h1>
 	);
 
 };
