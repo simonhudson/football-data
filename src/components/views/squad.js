@@ -1,7 +1,6 @@
 'use strict';
 
 import React, { Component } from 'react';
-import { getPlayer } from '../../utilities/api';
 
 class Squad extends Component {
 	
