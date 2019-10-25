@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import css from './css/styles.scss';
+import './css/styles.scss';
 
 const Crest = props => {
 	
