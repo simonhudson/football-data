@@ -17,7 +17,7 @@ const makeRequest = (endpoint, method) => {
 	});
 };
 
-export function get(endpoint) { return makeRequest(endpoint, 'GET') };
-export function post(endpoint) { return makeRequest(endpoint, 'POST') };
-export function put(endpoint) { return makeRequest(endpoint, 'PUT') };
-export function patch(endpoint) { return makeRequest(endpoint, 'PATCH') };
+export function get(endpoint) { return makeRequest(endpoint, 'GET'); }
+export function post(endpoint) { return makeRequest(endpoint, 'POST'); }
+export function put(endpoint) { return makeRequest(endpoint, 'PUT'); }
+export function patch(endpoint) { return makeRequest(endpoint, 'PATCH'); }
