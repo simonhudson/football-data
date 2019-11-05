@@ -1,4 +1,4 @@
-    {
+{
     "name": "football-data",
     "version": "1.0.0",
     "description": "",
@@ -6,7 +6,7 @@
     "scripts": {
         "build": "webpack --mode production",
         "start": "node index.js",
-        "start:dev": "npm run build && npm run start",
+        "start:dev": "nodemon --exec \"npm run build && npm run start\"",
         "lint": "eslint ./src/**/**.js",
         "lint:fix": "eslint ./src/**/**.js --fix",
         "test": "jest",
@@ -17,8 +17,8 @@
         "type": "git",
         "url": ""
     },
-    "engines" : {
-        "node" : "8.15.1"
+    "engines": {
+        "node": "8.15.1"
     },
     "keywords": [],
     "author": "",
@@ -60,6 +60,7 @@
         "husky": "^2.4.1",
         "img-loader": "^3.0.1",
         "json-loader": "^0.5.7",
+        "nodemon": "^1.19.4",
         "prettier": "^1.16.4",
         "request": "^2.81.0",
         "sass-loader": "^7.1.0",

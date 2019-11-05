@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import './assets/css/styles.scss';
-import { getClub, getFixtures, getResults } from './utilities/api';
+import { getClub, getFixtures, getResults } from './functions';
 import { transformSquad, transformResults } from './utilities/transform';
 import Home from './components/views/home';
 import Fixtures from './components/views/fixtures';
