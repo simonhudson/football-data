@@ -7,7 +7,7 @@ const COMMON_OPTIONS = {
 };
 
 const makeRequest = (endpoint, method) => {
-	if (!method || !endpoint) return null;
+	if (!endpoint || !method) return null;
 	const options = {...COMMON_OPTIONS, method };
 	return new Promise((resolve, reject) => {
 		fetch(`${process.env.API_URL}/${endpoint}`, options)

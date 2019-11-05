@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import './assets/css/styles.scss';
 import { getClub, getFixtures, getResults } from './functions';
-import { transformSquad, transformResults } from './utilities/transform';
+import { transformSquad, transformResults } from './transform';
 import Home from './components/views/home';
 import Fixtures from './components/views/fixtures';
 import Results from './components/views/results';

@@ -17,6 +17,5 @@ module.exports = {
     transform: {
         '^.+\\.js?$': 'babel-jest'
     },
-    verbose: true,
-    setupTestFrameworkScriptFile: './rtl.setup.js'
+    verbose: true
 };
