@@ -9,7 +9,7 @@ import './css/styles.scss';
 const Header = props => {
 	
 	return (
-		<div className="header">
+		<div className="header" data-test="header">
 			<Crest {...props} />
 			<ClubName {...props} />
 			<MainNavigation {...props} />
