@@ -5,10 +5,10 @@ import './css/styles.scss';
 
 const Crest = props => {
 	
-	if (!props) return null;
+	if (!props || !props.clubName || !props.src) return null;
 	
 	return (
-		<img alt={props.clubName} className="crest" src={props.src} />
+		<img alt={props.clubName} className="crest" data-test="crest" src={props.src} />
 	);
 
 };
