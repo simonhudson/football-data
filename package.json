@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "build": "webpack --mode production",
-        "start": "npm run build && node index.js",
+        "start": "cross-env NODE_ENV=production npm run build && node index.js",
         "start:dev": "nodemon --exec \"npm run start\"",
         "lint": "eslint ./src/**/**.js",
         "lint:fix": "eslint ./src/**/**.js --fix",
@@ -45,6 +45,7 @@
         "babel-plugin-root-import": "^6.1.0",
         "chai": "^3.5.0",
         "clean-webpack-plugin": "^2.0.0",
+        "cross-env": "^5.2.1",
         "css-loader": "^2.1.0",
         "dotenv": "^8.1.0",
         "enzyme": "^3.10.0",
@@ -78,7 +79,6 @@
         "webpack-merge": "^4.2.1"
     },
     "dependencies": {
-        "cross-env": "^5.2.0",
         "ejs": "^2.5.6",
         "express": "^4.15.2",
         "lodash": "^4.17.15",
