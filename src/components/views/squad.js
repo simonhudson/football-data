@@ -23,19 +23,15 @@ class Squad extends Component {
 	render = () => {
 		
 		const { props, state } = this;
+		
+		if (!props.squad) return null;
+		
 		const { selectedPlayer } = state;
 		
 		return (
-			<div className="squad">
-				{!!selectedPlayer && (
-					<div>
-						<h3>{selectedPlayer.name}</h3>
-						<p>{selectedPlayer.position}</p>
-						<p>{selectedPlayer.age}</p>
-					</div>
-				)}
+			<div className="squad" data-test="view-squad">
 				<div>
-					<h2>Squad</h2>
+					<h1>Squad</h1>
 					<ul className="squad__list">
 						{props.squad.map((player, index) => {
 							return (
@@ -48,6 +44,13 @@ class Squad extends Component {
 						})}
 					</ul>
 				</div>
+				{!!selectedPlayer && (
+					<div data-test="selected-player">
+						<h2 data-test="selected-player__name">{selectedPlayer.name}</h2>
+						<p data-test="selected-player__position">{selectedPlayer.position}</p>
+						<p data-test="selected-player__age">{selectedPlayer.age}</p>
+					</div>
+				)}
 			</div>
 		);
 	}
