@@ -2,14 +2,12 @@
 
 import React from 'react';
 
-const Fixtures = props => {
-
-	if (!props) return null;
+const Fixtures = () => {
 
 	return (
-		<>
+		<div data-test="view-fixtures">
 			<h1>Fixtures</h1>
-		</>
+		</div>
 	);
 
 };

@@ -9,11 +9,11 @@ const Home = props => {
 	if (!props) return null;
 	
 	return (
-		<>
+		<div data-test="view-home">
 			<h1>Home</h1>
 			<UpcomingFixtures {...props} />
 			<RecentResults {...props} />
-		</>
+		</div>
 	);
 
 };
