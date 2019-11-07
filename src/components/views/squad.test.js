@@ -37,7 +37,6 @@ describe('Squad', () => {
     const selectedPlayerName = `[data-test="selected-player__name"]`;
     const selectedPlayerPosition = `[data-test="selected-player__position"]`;
     const selectedPlayerAge = `[data-test="selected-player__age"]`;
-    const changeSelectedPlayerButton = `[data-test="change-selected-player"]`;
     
     it('should return null when no squad prop passed', () => {
         const props = cloneDeep(baseProps);
