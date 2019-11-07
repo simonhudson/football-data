@@ -36,7 +36,7 @@ class Squad extends Component {
 						{props.squad.map((player, index) => {
 							return (
 								<li key={index}>
-									<a href="#" onClick={((e) => this.changeCurrentPlayer(e))} data-player-id={player.id}>
+									<a href="#" data-test="change-selected-player" onClick={((e) => this.changeCurrentPlayer(e))} data-player-id={player.id}>
 										{player.shirtNumber} {player.name} ({player.position})
 									</a>
 								</li>
