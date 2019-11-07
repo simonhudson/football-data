@@ -5,8 +5,8 @@
     "main": "index.js",
     "scripts": {
         "build": "webpack --mode production",
-        "start": "node index.js",
-        "start:dev": "nodemon --exec \"npm run build && npm run start\"",
+        "start": "npm run build && node index.js",
+        "start:dev": "nodemon --exec \"npm run start\"",
         "lint": "eslint ./src/**/**.js",
         "lint:fix": "eslint ./src/**/**.js --fix",
         "test": "jest",
