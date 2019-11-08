@@ -5,14 +5,14 @@
     "main": "index.js",
     "scripts": {
         "build": "webpack --mode production",
-        "start": "cross-env NODE_ENV=production npm run build && node index.js",
-        "start:dev": "nodemon --exec \"npm run start\"",
+        "start": "node index.js",
+        "start:dev": "nodemon --exec \"npm run build && npm run start\"",
         "lint": "eslint ./src/**/**.js",
         "lint:fix": "eslint ./src/**/**.js --fix",
         "test": "jest",
         "test:watch": "npm run test --watch",
         "test:cover": "npm run test --coverage",
-        "heroku-postbuild": "npm run build"
+        "heroku-postbuild": "cross-env NODE_ENV=production npm run build"
     },
     "repository": {
         "type": "git",
