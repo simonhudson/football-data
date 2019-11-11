@@ -3,9 +3,9 @@
 import React from 'react';
 const moment = require('moment');
 
-const ResultItem = props => {
+const FixtureItem = props => {
 
-	if (!props) return null;
+	if (!props || !props.fixture) return null;
 	
 	const { fixture } = props;
 	
@@ -23,4 +23,4 @@ const ResultItem = props => {
 
 };
 
-export default ResultItem;
+export default FixtureItem;

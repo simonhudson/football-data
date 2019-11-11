@@ -7,20 +7,7 @@ import ResultItem from './item';
 const cloneDeep = require('lodash/cloneDeep');
 
 const baseProps = {
-    result: {        
-        awayTeam: {
-            name: 'Away'
-        },
-        homeTeam: {
-            name: 'Home'
-        },
-        score: {
-            fullTime: {
-                awayTeam: 1,
-                homeTeam: 2
-            }
-        }
-    }
+    result: require('~/test-data/results')[0]
 };
 
 describe('ResultItem', () => {

@@ -7,50 +7,7 @@ import RecentResults from './index';
 const cloneDeep = require('lodash/cloneDeep');
 
 const baseProps = {
-    results: [
-        {
-            awayTeam: {
-                name: 'Away'
-            },
-            homeTeam: {
-                name: 'Home'
-            },
-            score: {
-                fullTime: {
-                    awayTeam: 1,
-                    homeTeam: 2
-                }
-            }
-        },
-        {
-            awayTeam: {
-                name: 'Away'
-            },
-            homeTeam: {
-                name: 'Home'
-            },
-            score: {
-                fullTime: {
-                    awayTeam: 2,
-                    homeTeam: 2
-                }
-            }
-        },
-        {
-            awayTeam: {
-                name: 'Away'
-            },
-            homeTeam: {
-                name: 'Home'
-            },
-            score: {
-                fullTime: {
-                    awayTeam: 1,
-                    homeTeam: 0
-                }
-            }
-        }
-    ]
+    results: require('~/test-data/results')
 };
 
 describe('RecentResults', () => {
