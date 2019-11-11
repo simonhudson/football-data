@@ -14,13 +14,17 @@ class ClubPicker extends Component {
         };
 	}
 
-    componentDidMount = () => {
+    getData = () => {
         getClubsByCompetition(ENGLISH_CHAMPIONSHIP_COMPETITION_ID).then(response => {
             const options = [];
             response.teams.forEach(team => options.push({ name: team.name, id: team.id }));
             this.setState({ options });
         });
     }
+
+    componentDidMount = () => this.getData();
+        
+    componentDidUpdate = () => this.getData();
 
     render = () => {
         

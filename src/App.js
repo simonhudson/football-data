@@ -11,9 +11,9 @@ import Home from './components/views/home';
 import MainNavigation from './components/navigation/main-navigation';
 import Results from './components/views/results';
 import Squad from './components/views/squad';
-import { getLocalStorage, setLocalStorage } from '~/utilities/storage/local';
+import { deleteLocalStorage, getLocalStorage, setLocalStorage } from '~/utilities/storage/local';
 
-const CLUB_CODE_STORAGE_KEY = 'clubCode';
+const CLUB_ID_STORAGE_KEY = 'clubId';
 
 class App extends Component {
 
@@ -30,18 +30,12 @@ class App extends Component {
             results: null
         };
     }
-
-    componentDidUpdate = () => {
-        setLocalStorage(CLUB_CODE_STORAGE_KEY, this.state.clubId);
-        this.getData();
-    }
     
     getData = () => {
         getClub(this.state.clubId).then(response => {
             transformSquad(response.squad);
             this.setState({
                 crestUrl: response.crestUrl,
-                clubId: response.id,
                 clubName: response.name,
                 clubCode: response.tla,
                 squad: response.squad
@@ -61,13 +55,26 @@ class App extends Component {
     }
 
     componentDidMount = () => {
-        if (getLocalStorage(CLUB_CODE_STORAGE_KEY)) this.getData();
+        if (getLocalStorage(CLUB_ID_STORAGE_KEY)) {
+            this.setState({ clubId: parseInt(getLocalStorage(CLUB_ID_STORAGE_KEY), 10) });
+            this.getData();
+        }
+    }
+    
+    componentDidUpdate = () => {
+        setLocalStorage(CLUB_ID_STORAGE_KEY, this.state.clubId);
+        this.getData();
     }
     
     setClub = e => {
         e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-        this.setState({clubId: parseInt(e.target.value, 10)});
-    };
+        this.setState({ clubId: parseInt(e.target.value, 10) });
+    }
+    
+    clearClub = () => {
+        deleteLocalStorage(CLUB_ID_STORAGE_KEY);
+        this.setState({ clubId: null });
+    }
     
     onNavigationClick = e => {
         e.preventDefault ? e.preventDefault() : (e.returnValue = false);
@@ -81,9 +88,9 @@ class App extends Component {
         
         return (
             <div className="wrap">
-                {this.state.clubCode && (
+                {this.state.clubId && (
                     <>
-                        <Header clubName={state.clubName} src={state.crestUrl} />
+                        <Header clubName={state.clubName} src={state.crestUrl} onClearClubClick={this.clearClub}/>
                         <main>
                             {state.currentView === 'home' && <Home {...state} />}
                             {state.currentView === 'results' && <Results {...state} />}
@@ -93,7 +100,7 @@ class App extends Component {
                         <MainNavigation onNavigationClick={this.onNavigationClick} />
                     </>
                 )}
-                {!this.state.clubCode && (<ClubPicker onChange={this.setClub}/>)}
+                {!this.state.clubId && (<ClubPicker onChange={this.setClub}/>)}
             </div>
         );
     }

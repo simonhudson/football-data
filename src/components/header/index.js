@@ -11,6 +11,7 @@ const Header = props => {
 		<div className="header" data-test="header">
 			<Crest {...props} />
 			<ClubName {...props} />
+			<button onClick={props.onClearClubClick}>Change club</button>
 		</div>
 	);
 
