@@ -37,6 +37,7 @@ class App extends Component {
             this.setState({
                 crestUrl: response.crestUrl,
                 clubName: response.name,
+                clubId: response.id,
                 clubCode: response.tla,
                 squad: response.squad
             });
@@ -55,15 +56,11 @@ class App extends Component {
     }
 
     componentDidMount = () => {
-        if (getLocalStorage(CLUB_ID_STORAGE_KEY)) {
-            this.setState({ clubId: parseInt(getLocalStorage(CLUB_ID_STORAGE_KEY), 10) });
-            this.getData();
-        }
+        if (this.state.clubId) this.getData();
     }
     
     componentDidUpdate = () => {
-        setLocalStorage(CLUB_ID_STORAGE_KEY, this.state.clubId);
-        this.getData();
+        if (this.state.clubId) this.getData();
     }
     
     setClub = e => {
@@ -72,7 +69,6 @@ class App extends Component {
     }
     
     clearClub = () => {
-        deleteLocalStorage(CLUB_ID_STORAGE_KEY);
         this.setState({ clubId: null });
     }
     
