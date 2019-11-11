@@ -2,15 +2,15 @@
 
 export function get(name) {
 	if (!name) return null;
-	const value = '; ' + document.cookie;
-	if (!document.cookie) return null;
-	const parts = value.split('; ' + name + '=');
-	return parts.length === 2
-		? parts
-				.pop()
-				.split(';')
-				.shift()
-		: null;
+	const parts = document.cookie.split(';');
+	parts.forEach(part => {
+		part = part.trim();
+		const split = part.split('=');
+		const key = split[0];
+		const value = split[1];
+		if (key === name) return value;
+		return null;
+	});
 }
 
 export function set(name, value, expires) {

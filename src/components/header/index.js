@@ -3,7 +3,6 @@
 import React from 'react';
 import Crest from '../crest';
 import ClubName from '../club-name';
-import MainNavigation from '../navigation/main-navigation';
 import './css/styles.scss';
 
 const Header = props => {
@@ -12,7 +11,6 @@ const Header = props => {
 		<div className="header" data-test="header">
 			<Crest {...props} />
 			<ClubName {...props} />
-			<MainNavigation {...props} />
 		</div>
 	);
 

@@ -2,10 +2,10 @@
 
 const { get } = require('../api');
 
-const urlParams = new URLSearchParams(window.location.search);
-const TEAM_API_ID = urlParams.get('teamId') || process.env.TEAM_API_ID;
-const TEAM_API_URL = `teams/${TEAM_API_ID}/`;
+const getTeamApiUrl = id => `teams/${id}/`;
 
-export function getClub() { return get(`${TEAM_API_URL}`); }
-export function getFixtures() { return get(`${TEAM_API_URL}matches?status=SCHEDULED`); }
-export function getResults() { return get(`${TEAM_API_URL}matches?status=FINISHED`); }
+export function getClub(clubId) { return get(`${getTeamApiUrl(clubId)}`); }
+export function getFixtures(clubId) { return get(`${getTeamApiUrl(clubId)}matches?status=SCHEDULED`); }
+export function getResults(clubId) { return get(`${getTeamApiUrl(clubId)}matches?status=FINISHED`); }
+export function getCompetitions() { return get(`competitions`); }
+export function getClubsByCompetition(competitionId) { return get(`competitions/${competitionId}/teams`); }
