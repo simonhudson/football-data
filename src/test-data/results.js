@@ -1,10 +1,10 @@
 module.exports = [
 	{
 		awayTeam: {
-			name: 'Away'
+			name: 'Away 1'
 		},
 		homeTeam: {
-			name: 'Home'
+			name: 'Home 1'
 		},
 		score: {
 			fullTime: {
@@ -15,10 +15,10 @@ module.exports = [
 	},
 	{
 		awayTeam: {
-			name: 'Away'
+			name: 'Away 2'
 		},
 		homeTeam: {
-			name: 'Home'
+			name: 'Home 2'
 		},
 		score: {
 			fullTime: {
@@ -29,10 +29,10 @@ module.exports = [
 	},
 	{
 		awayTeam: {
-			name: 'Away'
+			name: 'Away 3'
 		},
 		homeTeam: {
-			name: 'Home'
+			name: 'Home 3'
 		},
 		score: {
 			fullTime: {

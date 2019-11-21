@@ -30,7 +30,7 @@ class App extends Component {
             results: null
         };
     }
-    
+
     getData = () => {
         getClub(this.state.clubId).then(response => {
             transformSquad(response.squad);
@@ -58,30 +58,30 @@ class App extends Component {
     componentDidMount = () => {
         if (this.state.clubId) this.getData();
     }
-    
+
     componentDidUpdate = () => {
         if (this.state.clubId) this.getData();
     }
-    
+
     setClub = e => {
         e.preventDefault ? e.preventDefault() : (e.returnValue = false);
         this.setState({ clubId: parseInt(e.target.value, 10) });
     }
-    
+
     clearClub = () => {
         this.setState({ clubId: null });
     }
-    
+
     onNavigationClick = e => {
         e.preventDefault ? e.preventDefault() : (e.returnValue = false);
         this.setState({ currentView: e.target.dataset.value });
     };
 
     render = () => {
-        
+
         const { state } = this;
         if (!state) return null;
-        
+
         return (
             <div className="wrap">
                 {this.state.clubId && (
