@@ -22,11 +22,9 @@ describe('Transform', () => {
     describe('transformResults', () => {
 
         it('should reverse data from API', () => {
-
             const reversed = testOptions.results.reverse();
             const actual = transformResults(testOptions.results);
             expect(actual).to.deep.equal(reversed);
-
         });
 
     });

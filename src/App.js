@@ -11,9 +11,9 @@ import Home from './components/views/home';
 import MainNavigation from './components/navigation/main-navigation';
 import Results from './components/views/results';
 import Squad from './components/views/squad';
-import { deleteLocalStorage, getLocalStorage, setLocalStorage } from '~/utilities/storage/local';
+// import { deleteLocalStorage, getLocalStorage, setLocalStorage } from '~/utilities/storage/local';
 
-const CLUB_ID_STORAGE_KEY = 'clubId';
+// const CLUB_ID_STORAGE_KEY = 'clubId';
 
 class App extends Component {
 
