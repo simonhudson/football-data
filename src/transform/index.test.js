@@ -13,8 +13,10 @@ describe('Transform', () => {
     describe('transformSquad', () => {
 
         it('should add an age property to each item', () => {
-            testOptions.squad.forEach(item => expect(item).to.not.have.property('age'));
-            transformSquad(testOptions.squad).forEach(item => expect(item).to.have.property('age'));
+            let data = testOptions.squad;
+            data.forEach(item => expect(item).to.not.have.property('age'));
+            transformSquad(data);
+            data.forEach(item => expect(item).to.have.property('age'));
         });
 
     });
@@ -22,9 +24,14 @@ describe('Transform', () => {
     describe('transformResults', () => {
 
         it('should reverse data from API', () => {
-            const reversed = testOptions.results.reverse();
-            const actual = transformResults(testOptions.results);
-            expect(actual).to.deep.equal(reversed);
+            let data = testOptions.results;
+            expect(data[0].awayTeam).to.have.property('name', 'Away 1');
+            expect(data[1].awayTeam).to.have.property('name', 'Away 2');
+            expect(data[2].awayTeam).to.have.property('name', 'Away 3');
+            transformResults(data);
+            expect(data[0].awayTeam).to.have.property('name', 'Away 3');
+            expect(data[1].awayTeam).to.have.property('name', 'Away 2');
+            expect(data[2].awayTeam).to.have.property('name', 'Away 1');
         });
 
     });
