@@ -10,7 +10,12 @@ const envs = {
     production: 'prod'
 };
 
+const getEnv = () => {
+    if (!!process.env && !!process.env.NODE_ENV) return envs[process.env.NODE_ENV];
+    return envs.development;
+};
+
 /* eslint-disable global-require,import/no-dynamic-require */
-const env = envs[process.env.NODE_ENV || 'development'];
+const env = getEnv();
 const envConfig = require(`./config/webpack/webpack.${env}.babel`);
 module.exports = webpackMerge(common, envConfig);
