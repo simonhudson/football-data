@@ -12,6 +12,5 @@ const envs = {
 
 /* eslint-disable global-require,import/no-dynamic-require */
 const env = envs[process.env.NODE_ENV || 'development'];
-console.log(`>>> : ${env}`);
 const envConfig = require(`./config/webpack/webpack.${env}.babel`);
 module.exports = webpackMerge(common, envConfig);

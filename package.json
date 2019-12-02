@@ -5,11 +5,10 @@
     "main": "index.js",
     "scripts": {
         "build": "webpack --mode production",
-        "heroku-postbuild": "npm run build",
-        "lint": "eslint ./src/**/**.js",
         "lint:fix": "eslint ./src/**/**.js --fix",
-        "start": "node index.js",
+        "lint": "eslint ./src/**/**.js",
         "start:dev": "nodemon --exec \"npm run build && npm run start\"",
+        "start": "npm run build && node index.js",
         "test:cover": "npm run test --coverage",
         "test:watch": "npm run test --watch",
         "test": "jest"
