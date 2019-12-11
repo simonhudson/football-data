@@ -3,5 +3,6 @@
 	"verbose": false,
 	"watch": [
 		"src/"
-	]
+	],
+	"ext": "js css html scss"
 }
