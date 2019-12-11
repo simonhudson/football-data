@@ -11,7 +11,7 @@
         "start": "npm run build && node index.js",
         "test:cover": "npm run test --coverage",
         "test:watch": "npm run test --watch",
-        "test": "jest"
+        "test": "jest --colors"
     },
     "repository": {
         "type": "git",
